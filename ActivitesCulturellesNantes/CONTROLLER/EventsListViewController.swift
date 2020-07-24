@@ -54,9 +54,17 @@ class EventsListViewController: UIViewController {
             calendarButton.layer.cornerRadius = 15
         }
     @IBAction func calendarButtonPressed(_ sender: UIButton) {
+        // création et affichage du calendarVC en popup
         let sb = UIStoryboard(name: "Main", bundle: nil)
         if let calendarView = sb.instantiateViewController(identifier: "calendar") as? CalendarViewController {
         self.present(calendarView, animated: true, completion: nil)
+        }
+        // reception notification et affectation valeur date
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "saveDate"), object: nil, queue: OperationQueue.main) { (notification) in
+            let dateVC = notification.object as! CalendarViewController
+            
+            self.dateLabel.text = dateVC.stringDay
+            //self.currentEvents(selecteDate: dateVC.dateSelected)
         }
     }
     
@@ -86,9 +94,9 @@ extension EventsListViewController: UITableViewDataSource {
             return cell
         }
         
-        
     }
-    extension EventsListViewController: UITableViewDelegate {
+extension EventsListViewController: UITableViewDelegate {
+    
         // swippe droit avec action supprimer et partager
         func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let supprimerAction = UIContextualAction(style: .destructive, title: "supprimer") { (action, sourceView, completionHandler) in

@@ -30,8 +30,7 @@ class CalendarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        calendar.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,16 +43,12 @@ class CalendarViewController: UIViewController {
         view.addSubview(calendar)
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+extension CalendarViewController: FSCalendarDelegate {
+    // selection date sur calendrier et emission notification
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "saveDate"), object: self)
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
 }
