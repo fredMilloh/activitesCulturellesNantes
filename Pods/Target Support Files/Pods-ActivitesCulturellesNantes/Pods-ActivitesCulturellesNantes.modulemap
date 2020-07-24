@@ -1,0 +1,6 @@
+framework module Pods_ActivitesCulturellesNantes {
+  umbrella header "Pods-ActivitesCulturellesNantes-umbrella.h"
+
+  export *
+  module * { export * }
+}
