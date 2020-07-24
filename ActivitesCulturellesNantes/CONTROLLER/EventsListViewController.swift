@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FSCalendar
 
 class EventsListViewController: UIViewController {
 
@@ -16,6 +17,15 @@ class EventsListViewController: UIViewController {
         @IBOutlet weak var dateLabel: UILabel!
         
         private static var array = [records]()
+    
+        static var date = NSDate()
+        // date for request events
+        static var currentDate: String {
+            let formatterDate = DateFormatter()
+            formatterDate.locale = Locale(identifier: "fr_FR")
+            formatterDate.dateFormat = "YYYY-MM-dd"
+            return formatterDate.string(from: date as Date)
+        }
 
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -23,11 +33,11 @@ class EventsListViewController: UIViewController {
             // rendre navbar transparente pour image occupe tout le haut
             navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
             navigationController?.navigationBar.shadowImage = UIImage()
-            currentEvents()
+            currentEvents(date: EventsListViewController.currentDate)
         }
         
-        func currentEvents() {
-            QueryListService.shared.get { (result) in
+    func currentEvents(date: String) {
+            QueryListService.shared.get(dateSelected: date) { (result) in
                 switch result {
                 case .failure(let error) :
                     print(error)
@@ -64,10 +74,9 @@ class EventsListViewController: UIViewController {
             let dateVC = notification.object as! CalendarViewController
             
             self.dateLabel.text = dateVC.stringDay
-            //self.currentEvents(selecteDate: dateVC.dateSelected)
+            self.currentEvents(date: dateVC.dateSelected)
         }
     }
-    
     
 }
 
@@ -89,7 +98,7 @@ extension EventsListViewController: UITableViewDataSource {
             if event.fields.complet == "non" { complet = "" } else { complet = "complet" }
             if event.fields.gratuit == "non" { gratuit = "" } else { gratuit = "gratuit" }
             
-            cell.configure(nom: event.fields.nom, media: event.fields.media_1 ?? "", date: "aujourd'hui", gratuit: gratuit, complet: complet)
+            cell.configure(nom: event.fields.nom, media: event.fields.media_1 ?? "", date: dateLabel.text ?? "", gratuit: gratuit, complet: complet)
             
             return cell
         }

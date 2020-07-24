@@ -13,10 +13,10 @@ class QueryListService {
     static var shared = QueryListService()
     private init() {}
 
-    func get(callback: @escaping(Result<ModelListEvents, EventsError>) -> Void) {
+    func get(dateSelected: String, callback: @escaping(Result<ModelListEvents, EventsError>) -> Void) {
        
         let firstUrl = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_agenda-evenements-nantes-nantes-metropole&rows=50&q="
-        let dateSelected = "2020-07-28"
+        
         let pathName = String(firstUrl + "\""+dateSelected+"\"")
         let Url = pathName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let url = URL(string: Url)!

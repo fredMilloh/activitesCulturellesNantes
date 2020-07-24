@@ -9,7 +9,7 @@
 import UIKit
 import FSCalendar
 
-class CalendarViewController: UIViewController {
+class CalendarViewController: UIViewController, FSCalendarDelegate {
     
     var calendar = FSCalendar()
     
@@ -43,8 +43,7 @@ class CalendarViewController: UIViewController {
         view.addSubview(calendar)
         
     }
-}
-extension CalendarViewController: FSCalendarDelegate {
+
     // selection date sur calendrier et emission notification
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
