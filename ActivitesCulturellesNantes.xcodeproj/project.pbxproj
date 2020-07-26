@@ -18,6 +18,10 @@
 		B6D5F6B724CAF7D6009D8534 /* EventsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5F6B624CAF7D6009D8534 /* EventsListTableViewCell.swift */; };
 		B6D5F6B924CAF8CE009D8534 /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5F6B824CAF8CE009D8534 /* EventsListViewController.swift */; };
 		B6D5F6BB24CB1700009D8534 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5F6BA24CB1700009D8534 /* CalendarViewController.swift */; };
+		B6D5F6C124CB5025009D8534 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5F6C024CB5025009D8534 /* DetailViewController.swift */; };
+		B6D5F6C324CB5DA4009D8534 /* HeaderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5F6C224CB5DA4009D8534 /* HeaderDetailView.swift */; };
+		B6D5F6C524CB68B7009D8534 /* DetailDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5F6C424CB68B7009D8534 /* DetailDescriptionTableViewCell.swift */; };
+		B6D5F6C724CB68D8009D8534 /* DetailInfosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5F6C624CB68D8009D8534 /* DetailInfosTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		B6D5F6B624CAF7D6009D8534 /* EventsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListTableViewCell.swift; sourceTree = "<group>"; };
 		B6D5F6B824CAF8CE009D8534 /* EventsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
 		B6D5F6BA24CB1700009D8534 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		B6D5F6C024CB5025009D8534 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B6D5F6C224CB5DA4009D8534 /* HeaderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDetailView.swift; sourceTree = "<group>"; };
+		B6D5F6C424CB68B7009D8534 /* DetailDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		B6D5F6C624CB68D8009D8534 /* DetailInfosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfosTableViewCell.swift; sourceTree = "<group>"; };
 		D72F66191AA38259DD48C308 /* Pods_ActivitesCulturellesNantes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActivitesCulturellesNantes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,6 +95,7 @@
 			children = (
 				B6D5F6B824CAF8CE009D8534 /* EventsListViewController.swift */,
 				B6D5F6BA24CB1700009D8534 /* CalendarViewController.swift */,
+				B6D5F6C024CB5025009D8534 /* DetailViewController.swift */,
 			);
 			path = CONTROLLER;
 			sourceTree = "<group>";
@@ -97,6 +106,9 @@
 				B6D5F6A124CAF4D3009D8534 /* Main.storyboard */,
 				B6D5F6A624CAF4D3009D8534 /* LaunchScreen.storyboard */,
 				B6D5F6B624CAF7D6009D8534 /* EventsListTableViewCell.swift */,
+				B6D5F6C224CB5DA4009D8534 /* HeaderDetailView.swift */,
+				B6D5F6C424CB68B7009D8534 /* DetailDescriptionTableViewCell.swift */,
+				B6D5F6C624CB68D8009D8534 /* DetailInfosTableViewCell.swift */,
 			);
 			path = VIEW;
 			sourceTree = "<group>";
@@ -246,9 +258,13 @@
 				B6D5F69C24CAF4D3009D8534 /* AppDelegate.swift in Sources */,
 				B6D5F6B324CAF6AC009D8534 /* ModelListEvents.swift in Sources */,
 				B6D5F69E24CAF4D3009D8534 /* SceneDelegate.swift in Sources */,
+				B6D5F6C724CB68D8009D8534 /* DetailInfosTableViewCell.swift in Sources */,
 				B6D5F6B924CAF8CE009D8534 /* EventsListViewController.swift in Sources */,
+				B6D5F6C324CB5DA4009D8534 /* HeaderDetailView.swift in Sources */,
 				B6D5F6BB24CB1700009D8534 /* CalendarViewController.swift in Sources */,
+				B6D5F6C524CB68B7009D8534 /* DetailDescriptionTableViewCell.swift in Sources */,
 				B6D5F6B524CAF6EA009D8534 /* QueryListService.swift in Sources */,
+				B6D5F6C124CB5025009D8534 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,15 +23,14 @@ struct fields: Decodable {
     var complet: String?
     var id_manif: String
     var heure_debut: String?
-    /*
+    var heure_fin: String?
     var lieu: String
     var adresse: String
     var ville: String
-    var precisions_public: String?
     var description: String
     var info_suppl: String?
     var precisions_tarifs: String?
- */
+ 
 }
 
 enum EventsError: Error {

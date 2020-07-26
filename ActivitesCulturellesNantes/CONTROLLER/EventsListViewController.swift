@@ -42,7 +42,6 @@ class EventsListViewController: UIViewController {
                 case .failure(let error) :
                     print(error)
                 case .success(let eventsData) :
-                    print(eventsData)
                     self.update(with: eventsData.records)
                 }
             }
@@ -52,9 +51,9 @@ class EventsListViewController: UIViewController {
             
             EventsListViewController.array = events
             
-            let nomSorted = events.sorted(by: {$0.fields.id_manif < $1.fields.id_manif})
-            EventsListViewController.array = nomSorted
-            
+            let manifIdSorted = events.sorted(by: {$0.fields.id_manif < $1.fields.id_manif})
+            EventsListViewController.array = manifIdSorted
+            print(manifIdSorted)
             tableView.reloadData()
         }
         
@@ -75,6 +74,7 @@ class EventsListViewController: UIViewController {
             
             self.dateLabel.text = dateVC.stringDay
             self.currentEvents(date: dateVC.dateSelected)
+            print(dateVC.dateSelected)
         }
     }
     
@@ -105,6 +105,24 @@ extension EventsListViewController: UITableViewDataSource {
         
     }
 extension EventsListViewController: UITableViewDelegate {
+    // quand cellule selectionner, envoi data en push
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detail: DetailViewController = self.storyboard?.instantiateViewController(identifier: "detailVC") as! DetailViewController
+        let path = EventsListViewController.array[indexPath.row]
+        detail.detailMedia = path.fields.media_1 ?? ""
+        detail.detailDate = dateLabel.text ?? ""
+        detail.detailHeureDebut = path.fields.heure_debut ?? ""
+        detail.detailHeureFin = path.fields.heure_fin ?? ""
+        detail.detailNom = path.fields.nom
+        detail.detailLieu = path.fields.lieu
+        detail.detailAdresse = path.fields.adresse
+        detail.detailVille = path.fields.ville
+        detail.detailDescription = path.fields.description
+        detail.detailInfoSup = path.fields.info_suppl ?? ""
+        detail.detailPrecisionsTarif = path.fields.precisions_tarifs ?? ""
+        
+        self.navigationController?.pushViewController(detail, animated: true)
+    }
     
         // swippe droit avec action supprimer et partager
         func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
