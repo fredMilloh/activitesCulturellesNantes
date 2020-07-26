@@ -14,6 +14,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mad-px-mdR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="r1q-aX-Zo1"/>
@@ -225,10 +226,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OvX-sE-u4S">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                            <rect key="frame" x="0.0" y="-43" width="375" height="243"/>
                                         </imageView>
                                         <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeh-pc-cSZ" userLabel="Black View">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                            <rect key="frame" x="0.0" y="-43" width="375" height="243"/>
                                             <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0u7-ao-3d6">
@@ -236,14 +237,14 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="yrS-0u-5dY"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nom" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgV-Uu-mgU">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nom" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgV-Uu-mgU">
                                             <rect key="frame" x="10" y="173" width="355" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="22" id="pyv-pV-vU9"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="pyv-pV-vU9"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -252,7 +253,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="OvX-sE-u4S" firstAttribute="top" secondItem="P3d-TY-36i" secondAttribute="top" id="72f-0o-pUE"/>
+                                        <constraint firstItem="OvX-sE-u4S" firstAttribute="top" secondItem="P3d-TY-36i" secondAttribute="top" constant="-43" id="72f-0o-pUE"/>
                                         <constraint firstAttribute="bottom" secondItem="vgV-Uu-mgU" secondAttribute="bottom" constant="5" id="ABo-aV-PP8"/>
                                         <constraint firstAttribute="trailing" secondItem="OvX-sE-u4S" secondAttribute="trailing" id="EZd-72-O0S"/>
                                         <constraint firstAttribute="bottom" secondItem="zeh-pc-cSZ" secondAttribute="bottom" id="Z8l-AQ-rg0"/>
@@ -260,7 +261,7 @@
                                         <constraint firstItem="vgV-Uu-mgU" firstAttribute="top" secondItem="0u7-ao-3d6" secondAttribute="bottom" constant="5" id="dVy-7t-qHC"/>
                                         <constraint firstAttribute="bottom" secondItem="OvX-sE-u4S" secondAttribute="bottom" id="e81-B0-stB"/>
                                         <constraint firstAttribute="trailing" secondItem="0u7-ao-3d6" secondAttribute="trailing" constant="10" id="eF4-sq-LBY"/>
-                                        <constraint firstItem="zeh-pc-cSZ" firstAttribute="top" secondItem="P3d-TY-36i" secondAttribute="top" id="hEy-wH-2H8"/>
+                                        <constraint firstItem="zeh-pc-cSZ" firstAttribute="top" secondItem="P3d-TY-36i" secondAttribute="top" constant="-43" id="hEy-wH-2H8"/>
                                         <constraint firstItem="vgV-Uu-mgU" firstAttribute="leading" secondItem="P3d-TY-36i" secondAttribute="leading" constant="10" id="iaQ-3V-Ijb"/>
                                         <constraint firstItem="zeh-pc-cSZ" firstAttribute="leading" secondItem="P3d-TY-36i" secondAttribute="leading" id="ijg-2o-upG"/>
                                         <constraint firstItem="0u7-ao-3d6" firstAttribute="leading" secondItem="P3d-TY-36i" secondAttribute="leading" constant="10" id="img-If-4i0"/>
@@ -404,12 +405,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="oyw-jd-yYD" secondAttribute="bottom" id="CM0-0t-gSa"/>
-                            <constraint firstItem="oyw-jd-yYD" firstAttribute="top" secondItem="Pdb-1G-ADR" secondAttribute="top" id="b0z-HH-743"/>
+                            <constraint firstItem="oyw-jd-yYD" firstAttribute="top" secondItem="qRd-oX-FbV" secondAttribute="top" id="b0z-HH-743"/>
                             <constraint firstItem="oyw-jd-yYD" firstAttribute="trailing" secondItem="Pdb-1G-ADR" secondAttribute="trailing" id="djV-aD-HCr"/>
                             <constraint firstItem="oyw-jd-yYD" firstAttribute="leading" secondItem="Pdb-1G-ADR" secondAttribute="leading" id="sPf-Ha-ORA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pdb-1G-ADR"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="headerView" destination="P3d-TY-36i" id="fOm-EB-qx2"/>
                         <outlet property="tableView" destination="oyw-jd-yYD" id="BY8-4L-nnN"/>
