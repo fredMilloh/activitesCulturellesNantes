@@ -29,7 +29,7 @@ class EventsListViewController: UIViewController {
 
         override func viewDidLoad() {
             super.viewDidLoad()
-            addCircleButton()
+            
             // rendre navbar transparente pour image occupe tout le haut
             navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
             navigationController?.navigationBar.shadowImage = UIImage()
@@ -57,11 +57,6 @@ class EventsListViewController: UIViewController {
             tableView.reloadData()
         }
         
-        func addCircleButton() {
-            calendarButton.layer.borderWidth = 1
-            calendarButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            calendarButton.layer.cornerRadius = 15
-        }
     @IBAction func calendarButtonPressed(_ sender: UIButton) {
         // création et affichage du calendarVC en popup
         let sb = UIStoryboard(name: "Main", bundle: nil)

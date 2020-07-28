@@ -149,7 +149,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="calendar" catalog="system"/>
+                                <state key="normal" image="icons8-calendrier-48"/>
                                 <connections>
                                     <action selector="calendarButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h4d-oN-kcH"/>
                                 </connections>
@@ -424,6 +424,6 @@
     </scenes>
     <resources>
         <image name="AgendaNantesBackground" width="750" height="1334"/>
-        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="icons8-calendrier-48" width="48" height="48"/>
     </resources>
 </document>
