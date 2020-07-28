@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
-        
+        tableView.delegate = self
         //Configuration headerView
         headerView.dateLabel.text = (detailDate + "   " + detailHeureDebut)
         headerView.nomLabel.text = detailNom
@@ -81,6 +81,23 @@ extension DetailViewController: UITableViewDataSource {
     }
     
 }
+
+extension DetailViewController: UITableViewDelegate {
+ // cell animated
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // position cell au départ et définition animation (ici rotation 90° vers gauche)
+        /*
+        let rotationAngleRadians = 90.0 * CGFloat(Double.pi/180.0)
+        let rotationTransform = CATransform3DMakeRotation(rotationAngleRadians, 0, 0, 1)
+        */
+        // arrivée cell par le bas à droite
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 500, 100, 0)
+        cell.layer.transform = rotationTransform
+        // durée animation et position final (Identity pour position par défaut des cell)
+        UIView.animate(withDuration: 1.0, animations: {cell.layer.transform = CATransform3DIdentity})
+    }
+}
+
 extension UIImageView {
     func downloadedImage(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
         contentMode = mode

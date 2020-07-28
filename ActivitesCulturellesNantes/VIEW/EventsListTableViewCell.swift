@@ -17,6 +17,8 @@ class EventsListTableViewCell: UITableViewCell {
      @IBOutlet weak var dateLabel: UILabel!
      @IBOutlet weak var gratuitLabel: UILabel!
      @IBOutlet weak var completLabel: UILabel!
+    
+    static var imageShared: UIImageView!
 
      override func awakeFromNib() {
          super.awakeFromNib()
@@ -39,7 +41,7 @@ class EventsListTableViewCell: UITableViewCell {
 
      func configure(nom: String, media: String, date: String, gratuit: String, complet: String) {
          nomLabel.text = nom
-         imageMedia.downloaded(from: media)
+        imageMedia.downloaded(from: media)
          dateLabel.text = date
          gratuitLabel.text = gratuit
          completLabel.text = complet

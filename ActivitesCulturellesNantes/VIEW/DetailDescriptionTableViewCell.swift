@@ -14,8 +14,8 @@ class DetailDescriptionTableViewCell: UITableViewCell {
     @IBOutlet var lieuLabel: UILabel!
     @IBOutlet var adresseLabel: UILabel!
     @IBOutlet var villeLabel: UILabel!
-    @IBOutlet var descriptionLabel: UILabel! 
-
+    @IBOutlet var descriptionLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         addShadow()

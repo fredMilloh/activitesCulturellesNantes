@@ -104,7 +104,7 @@ extension EventsListViewController: UITableViewDataSource {
         
     }
 extension EventsListViewController: UITableViewDelegate {
-    // quand cellule selectionner, envoi data en push
+// quand cellule selectionner, envoi data en push
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detail: DetailViewController = self.storyboard?.instantiateViewController(identifier: "detailVC") as! DetailViewController
         let path = EventsListViewController.array[indexPath.row]
@@ -123,7 +123,7 @@ extension EventsListViewController: UITableViewDelegate {
         self.navigationController?.pushViewController(detail, animated: true)
     }
     
-        // swippe droit avec action supprimer et partager
+// swippe droit avec action supprimer et partager
         func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let supprimerAction = UIContextualAction(style: .destructive, title: "supprimer") { (action, sourceView, completionHandler) in
                 EventsListViewController.array.remove(at: indexPath.row)
@@ -132,8 +132,15 @@ extension EventsListViewController: UITableViewDelegate {
             }
             
             let partagerAction = UIContextualAction(style: .normal, title: "partager") { (action, sourceView, completionHandler) in
-                let textParDefaut = "Aller à cet événement" + EventsListViewController.array[indexPath.row].fields.nom
-                let activityController = UIActivityViewController(activityItems: [textParDefaut], applicationActivities: nil)
+                let textParDefaut = "Aller à cet événement :" + EventsListViewController.array[indexPath.row].fields.nom + " " + EventsListViewController.array[indexPath.row].fields.description
+                // to share image if existe
+                let activityController: UIActivityViewController
+                if let shareImage = EventsListTableViewCell.imageShared {
+                    activityController = UIActivityViewController(activityItems: [textParDefaut, shareImage], applicationActivities: nil)
+                } else {
+                    activityController = UIActivityViewController(activityItems: [textParDefaut], applicationActivities: nil)
+                }
+                
                 self.present(activityController, animated: true, completion: nil)
                 completionHandler(true)
             }
@@ -141,5 +148,5 @@ extension EventsListViewController: UITableViewDelegate {
             let swippeConfiguration = UISwipeActionsConfiguration(actions: [supprimerAction, partagerAction])
             return swippeConfiguration
         }
-    }
-
+    
+}
