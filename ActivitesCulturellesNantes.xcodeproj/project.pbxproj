@@ -22,6 +22,8 @@
 		B6D5F6C324CB5DA4009D8534 /* HeaderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5F6C224CB5DA4009D8534 /* HeaderDetailView.swift */; };
 		B6D5F6C524CB68B7009D8534 /* DetailDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5F6C424CB68B7009D8534 /* DetailDescriptionTableViewCell.swift */; };
 		B6D5F6C724CB68D8009D8534 /* DetailInfosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5F6C624CB68D8009D8534 /* DetailInfosTableViewCell.swift */; };
+		B6D5F6C924D08C1F009D8534 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D5F6C824D08C1F009D8534 /* MapKit.framework */; };
+		B6D5F6CB24D0955F009D8534 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5F6CA24D0955F009D8534 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		B6D5F6C224CB5DA4009D8534 /* HeaderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDetailView.swift; sourceTree = "<group>"; };
 		B6D5F6C424CB68B7009D8534 /* DetailDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		B6D5F6C624CB68D8009D8534 /* DetailInfosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfosTableViewCell.swift; sourceTree = "<group>"; };
+		B6D5F6C824D08C1F009D8534 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B6D5F6CA24D0955F009D8534 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D72F66191AA38259DD48C308 /* Pods_ActivitesCulturellesNantes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActivitesCulturellesNantes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6D5F6C924D08C1F009D8534 /* MapKit.framework in Frameworks */,
 				7D1764881016BB06E39A19BA /* Pods_ActivitesCulturellesNantes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +101,7 @@
 				B6D5F6B824CAF8CE009D8534 /* EventsListViewController.swift */,
 				B6D5F6BA24CB1700009D8534 /* CalendarViewController.swift */,
 				B6D5F6C024CB5025009D8534 /* DetailViewController.swift */,
+				B6D5F6CA24D0955F009D8534 /* MapViewController.swift */,
 			);
 			path = CONTROLLER;
 			sourceTree = "<group>";
@@ -125,6 +131,7 @@
 		E722CE1FD86F3804D2CB4E31 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6D5F6C824D08C1F009D8534 /* MapKit.framework */,
 				D72F66191AA38259DD48C308 /* Pods_ActivitesCulturellesNantes.framework */,
 			);
 			name = Frameworks;
@@ -167,6 +174,9 @@
 		B6D5F69024CAF4D3009D8534 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					maps,
+				);
 				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = fred;
@@ -261,6 +271,7 @@
 				B6D5F6C724CB68D8009D8534 /* DetailInfosTableViewCell.swift in Sources */,
 				B6D5F6B924CAF8CE009D8534 /* EventsListViewController.swift in Sources */,
 				B6D5F6C324CB5DA4009D8534 /* HeaderDetailView.swift in Sources */,
+				B6D5F6CB24D0955F009D8534 /* MapViewController.swift in Sources */,
 				B6D5F6BB24CB1700009D8534 /* CalendarViewController.swift in Sources */,
 				B6D5F6C524CB68B7009D8534 /* DetailDescriptionTableViewCell.swift in Sources */,
 				B6D5F6B524CAF6EA009D8534 /* QueryListService.swift in Sources */,

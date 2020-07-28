@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class DetailViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
@@ -21,6 +22,7 @@ class DetailViewController: UIViewController {
     var detailLieu = ""
     var detailAdresse = ""
     var detailVille = ""
+    var detailLocation = ""
     var detailInfoSup = ""
     var detailDescription = ""
     var detailPrecisionsTarif = ""
@@ -34,6 +36,14 @@ class DetailViewController: UIViewController {
         headerView.dateLabel.text = (detailDate + "   " + detailHeureDebut)
         headerView.nomLabel.text = detailNom
         headerView.headerImage.downloadedImage(from: detailMedia)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMapView" {
+            let destinationController = segue.destination as! MapViewController
+            destinationController.mapNom = detailNom
+            destinationController.mapLocation = detailLocation
+        }
     }
     
 }
@@ -54,6 +64,7 @@ extension DetailViewController: UITableViewDataSource {
             cell.adresseLabel.text = detailAdresse
             cell.villeLabel.text = detailVille
             cell.descriptionLabel.text = detailDescription
+            cell.configure(location: detailLocation)
             return cell
             
         case 1:

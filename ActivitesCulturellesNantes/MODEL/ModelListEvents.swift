@@ -30,6 +30,7 @@ struct fields: Decodable {
     var description: String
     var info_suppl: String?
     var precisions_tarifs: String?
+    var location: String
  
 }
 

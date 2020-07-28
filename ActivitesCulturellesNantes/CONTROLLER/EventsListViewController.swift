@@ -111,6 +111,7 @@ extension EventsListViewController: UITableViewDelegate {
         detail.detailLieu = path.fields.lieu
         detail.detailAdresse = path.fields.adresse
         detail.detailVille = path.fields.ville
+        detail.detailLocation = path.fields.location
         detail.detailDescription = path.fields.description
         detail.detailInfoSup = path.fields.info_suppl ?? ""
         detail.detailPrecisionsTarif = path.fields.precisions_tarifs ?? ""
