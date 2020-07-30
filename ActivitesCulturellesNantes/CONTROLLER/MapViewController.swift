@@ -18,7 +18,8 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+print(mapLocation)
+        
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(mapLocation) { (placemarks, error) in
             if let error = error { print(error)

@@ -24,11 +24,15 @@ class DetailViewController: UIViewController {
     var detailVille = ""
     var detailLocation = ""
     var detailInfoSup = ""
+    static var infoSup = ""
     var detailDescription = ""
+    static var eventDescription = ""
     var detailPrecisionsTarif = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DetailViewController.eventDescription = ""
+        DetailViewController.infoSup = ""
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -36,6 +40,7 @@ class DetailViewController: UIViewController {
         headerView.dateLabel.text = (detailDate + "   " + detailHeureDebut)
         headerView.nomLabel.text = detailNom
         headerView.headerImage.downloadedImage(from: detailMedia)
+        print(detailInfoSup)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,6 +48,22 @@ class DetailViewController: UIViewController {
             let destinationController = segue.destination as! MapViewController
             destinationController.mapNom = detailNom
             destinationController.mapLocation = detailLocation
+        }
+    }
+    
+    // pour afficher une phrase par ligne
+    func descriptionStyle(texte: String) {
+        let description = texte
+        let results = description.components(separatedBy: "  ")
+        for result in results {
+            DetailViewController.eventDescription += "\n" + result
+        }
+    }
+    func infoStyle(texte: String) {
+        let info = texte
+        let results = info.components(separatedBy: .uppercaseLetters)
+        for result in results {
+            DetailViewController.infoSup += result + "\n"
         }
     }
     
@@ -63,7 +84,10 @@ extension DetailViewController: UITableViewDataSource {
             cell.lieuLabel.text = detailLieu
             cell.adresseLabel.text = detailAdresse
             cell.villeLabel.text = detailVille
-            cell.descriptionLabel.text = detailDescription
+            
+            descriptionStyle(texte: detailDescription)
+            cell.descriptionLabel.text = DetailViewController.eventDescription
+            
             cell.configure(location: detailLocation)
             return cell
             
@@ -73,7 +97,10 @@ extension DetailViewController: UITableViewDataSource {
             
             if detailInfoSup == "" {
                 cell.texteLabel.text = detailHeureDebut == "" ? detailDate : (detailDate + " de " + detailHeureDebut + " à " + detailHeureFin)
-            } else { cell.texteLabel.text = detailInfoSup }
+            } else {
+                infoStyle(texte: detailInfoSup)
+                cell.texteLabel.text = DetailViewController.infoSup
+            }
             return cell
             
         case 2:

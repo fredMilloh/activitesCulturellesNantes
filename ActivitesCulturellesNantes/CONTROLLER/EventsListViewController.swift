@@ -53,7 +53,7 @@ class EventsListViewController: UIViewController {
             
             let manifIdSorted = events.sorted(by: {$0.fields.id_manif < $1.fields.id_manif})
             EventsListViewController.array = manifIdSorted
-            print(manifIdSorted)
+            
             tableView.reloadData()
         }
         
@@ -69,7 +69,6 @@ class EventsListViewController: UIViewController {
             
             self.dateLabel.text = dateVC.stringDay
             self.currentEvents(date: dateVC.dateSelected)
-            print(dateVC.dateSelected)
         }
     }
     

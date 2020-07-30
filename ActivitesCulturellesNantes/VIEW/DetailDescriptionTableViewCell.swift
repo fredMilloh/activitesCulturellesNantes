@@ -37,8 +37,9 @@ class DetailDescriptionTableViewCell: UITableViewCell {
     }
     
     @IBAction func buttonPressed() {
-        
+     // si absent crash quand on appui sur le bouton
     }
+    
     func configure(location: String) {
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(location) { (placemarks, error) in
