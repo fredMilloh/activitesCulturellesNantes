@@ -60,10 +60,9 @@ class DetailViewController: UIViewController {
         }
     }
     func infoStyle(texte: String) {
-        let info = texte
-        let results = info.components(separatedBy: .uppercaseLetters)
-        for result in results {
-            DetailViewController.infoSup += result + "\n"
+        let infos = texte.splitBefore(separator: { $0.isUppercase }).map{String($0)}
+        for info in infos {
+            DetailViewController.infoSup += info + "\n\n"
         }
     }
     
@@ -156,8 +155,39 @@ extension UIImageView {
         downloaded(from: url, contentMode: mode)
     }
 }
-   
-    
+   extension Sequence {
+       func splitBefore(
+           separator isSeparator: (Iterator.Element) throws -> Bool
+       ) rethrows -> [AnySequence<Iterator.Element>] {
+           var result: [AnySequence<Iterator.Element>] = []
+           var subSequence: [Iterator.Element] = []
+
+           var iterator = self.makeIterator()
+           while let element = iterator.next() {
+               if try isSeparator(element) {
+                   if !subSequence.isEmpty {
+                       result.append(AnySequence(subSequence))
+                   }
+                   subSequence = [element]
+               }
+               else {
+                   subSequence.append(element)
+               }
+           }
+           result.append(AnySequence(subSequence))
+           return result
+       }
+   }
+    extension String {
+
+    var isLowercase: Bool {
+        return self == self.lowercased()
+    }
+
+    var isUppercase: Bool {
+        return self == self.uppercased()
+    }
+}
 
     
 
