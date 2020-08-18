@@ -28,11 +28,13 @@ class DetailViewController: UIViewController {
     var detailDescription = ""
     static var eventDescription = ""
     var detailPrecisionsTarif = ""
+    static var eventTarif = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         DetailViewController.eventDescription = ""
         DetailViewController.infoSup = ""
+        DetailViewController.eventTarif = ""
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -40,7 +42,10 @@ class DetailViewController: UIViewController {
         headerView.dateLabel.text = (detailDate + "   " + detailHeureDebut)
         headerView.nomLabel.text = detailNom
         headerView.headerImage.downloadedImage(from: detailMedia)
-        print(detailInfoSup)
+        
+        print("brutDescription", detailDescription)
+        print("brutInfos", detailInfoSup)
+        print("brutTarif", detailPrecisionsTarif)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -59,10 +64,19 @@ class DetailViewController: UIViewController {
             DetailViewController.eventDescription += "\n" + result
         }
     }
+    // avec extensions sequence et string
     func infoStyle(texte: String) {
         let infos = texte.splitBefore(separator: { $0.isUppercase }).map{String($0)}
         for info in infos {
             DetailViewController.infoSup += info + "\n\n"
+        }
+    }
+    func tarifStyle(texte: String) {
+        let line = texte
+        let tarifs = line.components(separatedBy: "  ")
+        //let tarifs = line.splitBefore(separator: { $0.isNumber })
+        for tarif in tarifs {
+            DetailViewController.eventTarif += tarif + "\r"
         }
     }
     
@@ -108,7 +122,9 @@ extension DetailViewController: UITableViewDataSource {
                 cell.isHidden = true
             } else {
                 cell.titreLabel.text = "Moyens de Paiement"
-                cell.texteLabel.text = detailPrecisionsTarif
+                tarifStyle(texte: detailPrecisionsTarif)
+                cell.texteLabel.text = DetailViewController.eventTarif
+                print("eventTarif", DetailViewController.eventTarif)
             }
             return cell
             
@@ -155,17 +171,15 @@ extension UIImageView {
         downloaded(from: url, contentMode: mode)
     }
 }
-   extension Sequence {
-       func splitBefore(
-           separator isSeparator: (Iterator.Element) throws -> Bool
-       ) rethrows -> [AnySequence<Iterator.Element>] {
+   extension Sequence { // pour func infoStyle
+       func splitBefore(separator isSeparator: (Iterator.Element) throws -> Bool) rethrows -> [AnySequence<Iterator.Element>] {
            var result: [AnySequence<Iterator.Element>] = []
            var subSequence: [Iterator.Element] = []
 
            var iterator = self.makeIterator()
            while let element = iterator.next() {
                if try isSeparator(element) {
-                   if !subSequence.isEmpty {
+                if !subSequence.isEmpty {
                        result.append(AnySequence(subSequence))
                    }
                    subSequence = [element]
@@ -178,7 +192,7 @@ extension UIImageView {
            return result
        }
    }
-    extension String {
+    extension String {  // pour func infoStyle
 
     var isLowercase: Bool {
         return self == self.lowercased()
@@ -188,6 +202,3 @@ extension UIImageView {
         return self == self.uppercased()
     }
 }
-
-    
-
