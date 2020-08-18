@@ -18,7 +18,13 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-print(mapLocation)
+        mapView.delegate = self
+        // ajout échelle
+        mapView.showsScale = true
+        // ajout boussole
+        mapView.showsCompass = true
+        mapView.showsUserLocation = true
+        mapView.showsBuildings = true
         
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(mapLocation) { (placemarks, error) in
@@ -40,16 +46,25 @@ print(mapLocation)
             }
         }
     }
+}
+
+extension MapViewController: MKMapViewDelegate {
+    // personnalisation de l'épingle mapview
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "MyStramp"
+        if annotation.isKind(of: MKUserLocation.self) {
+            return nil
+        }
+        // réutilisation de l'annotation si possible
+        var annotationView : MKMarkerAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
+        
+        if annotationView == nil {
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+        annotationView?.glyphText = "🧐"
+        annotationView?.markerTintColor = .green
+        
+        return annotationView
     }
-    */
-
 }
