@@ -101,7 +101,6 @@ extension DetailViewController: UITableViewDataSource {
             descriptionStyle(texte: detailDescription)
             cell.descriptionLabel.text = DetailViewController.eventDescription
             
-            cell.configure(location: detailLocation)
             return cell
             
         case 1:
@@ -171,7 +170,8 @@ extension UIImageView {
         downloaded(from: url, contentMode: mode)
     }
 }
-   extension Sequence { // pour func infoStyle
+
+extension Sequence { // pour func infoStyle
        func splitBefore(separator isSeparator: (Iterator.Element) throws -> Bool) rethrows -> [AnySequence<Iterator.Element>] {
            var result: [AnySequence<Iterator.Element>] = []
            var subSequence: [Iterator.Element] = []

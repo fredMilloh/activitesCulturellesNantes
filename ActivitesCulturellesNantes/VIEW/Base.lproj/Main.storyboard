@@ -157,7 +157,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="icons8-calendrier-48"/>
+                                <state key="normal" image="Icon_Calendar"/>
                                 <connections>
                                     <action selector="calendarButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h4d-oN-kcH"/>
                                 </connections>
@@ -325,40 +325,49 @@
                                                             <color key="textColor" red="0.09696625918" green="0.25727394219999999" blue="0.87063843009999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4vw-bv-Txp">
-                                                            <rect key="frame" x="300" y="10" width="50" height="50"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="50" id="Epv-3B-tcn"/>
-                                                            </constraints>
-                                                        </mapView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQ0-Js-rbL">
-                                                            <rect key="frame" x="300" y="10" width="50" height="50"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="50" id="fuL-P8-Ucg"/>
-                                                            </constraints>
-                                                            <connections>
-                                                                <action selector="buttonPressed" destination="ZL2-tz-ryR" eventType="touchUpInside" id="wF9-ak-8g9"/>
-                                                                <segue destination="jf8-ka-qZP" kind="show" identifier="toMapView" id="EEP-lC-iuK"/>
-                                                            </connections>
-                                                        </button>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="X3q-2t-bUH">
+                                                            <rect key="frame" x="280" y="10" width="65" height="25"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbX-pK-eel">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="RbX-pK-eel" secondAttribute="height" multiplier="1:1" id="cda-nb-1Up"/>
+                                                                        <constraint firstAttribute="height" constant="25" id="mDa-JG-ilY"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="MapButton" image="mappin.and.ellipse" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="mapButtonPressed" destination="ZL2-tz-ryR" eventType="touchUpInside" id="mYd-2E-jSf"/>
+                                                                        <segue destination="jf8-ka-qZP" kind="show" identifier="toMapView" id="bxP-fS-Rrv"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Azj-0B-Ngp">
+                                                                    <rect key="frame" x="40" y="0.0" width="25" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="Azj-0B-Ngp" secondAttribute="height" multiplier="1:1" id="1dw-Wn-s7O"/>
+                                                                        <constraint firstAttribute="height" constant="25" id="b10-W8-JGP"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="MailButton" image="envelope" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="mailButtonPressed" destination="ZL2-tz-ryR" eventType="touchUpInside" id="1uj-oy-jUv"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="JeS-c5-uhS" firstAttribute="top" secondItem="yQc-Pt-evz" secondAttribute="top" constant="10" id="5Bd-fW-BEg"/>
-                                                        <constraint firstAttribute="trailing" secondItem="4vw-bv-Txp" secondAttribute="trailing" constant="5" id="5jD-I2-6Xw"/>
-                                                        <constraint firstItem="N4V-4R-Y5w" firstAttribute="top" secondItem="4vw-bv-Txp" secondAttribute="bottom" constant="10" id="IV1-Pv-0pV"/>
                                                         <constraint firstItem="N4V-4R-Y5w" firstAttribute="leading" secondItem="yQc-Pt-evz" secondAttribute="leading" constant="5" id="L3I-rb-2Zx"/>
                                                         <constraint firstAttribute="width" constant="355" id="QF7-ax-n4Y"/>
-                                                        <constraint firstItem="4vw-bv-Txp" firstAttribute="top" secondItem="yQc-Pt-evz" secondAttribute="top" constant="10" id="QIU-Bm-iVl"/>
                                                         <constraint firstAttribute="bottom" secondItem="N4V-4R-Y5w" secondAttribute="bottom" constant="10" id="RP3-UQ-vej"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="TVS-2h-Le2"/>
                                                         <constraint firstItem="N4V-4R-Y5w" firstAttribute="top" secondItem="JeS-c5-uhS" secondAttribute="bottom" constant="10" id="VVr-ai-EW5"/>
+                                                        <constraint firstItem="N4V-4R-Y5w" firstAttribute="top" secondItem="X3q-2t-bUH" secondAttribute="bottom" constant="35" id="WXX-2o-sGy"/>
                                                         <constraint firstAttribute="trailing" secondItem="JeS-c5-uhS" secondAttribute="trailing" constant="150" id="Xrp-dC-v9Y"/>
-                                                        <constraint firstAttribute="trailing" secondItem="LQ0-Js-rbL" secondAttribute="trailing" constant="5" id="lwf-WX-mgv"/>
+                                                        <constraint firstItem="X3q-2t-bUH" firstAttribute="leading" secondItem="JeS-c5-uhS" secondAttribute="trailing" constant="75" id="cpE-MK-6jt"/>
+                                                        <constraint firstAttribute="trailing" secondItem="X3q-2t-bUH" secondAttribute="trailing" constant="10" id="mrv-oW-v8N"/>
                                                         <constraint firstAttribute="trailing" secondItem="N4V-4R-Y5w" secondAttribute="trailing" constant="5" id="tcI-r8-SM6"/>
-                                                        <constraint firstItem="LQ0-Js-rbL" firstAttribute="top" secondItem="yQc-Pt-evz" secondAttribute="top" constant="10" id="v57-WG-P7t"/>
-                                                        <constraint firstItem="N4V-4R-Y5w" firstAttribute="top" secondItem="LQ0-Js-rbL" secondAttribute="bottom" constant="10" id="xwn-0r-Qui"/>
+                                                        <constraint firstItem="X3q-2t-bUH" firstAttribute="top" secondItem="yQc-Pt-evz" secondAttribute="top" constant="10" id="yg4-df-qzw"/>
                                                         <constraint firstItem="JeS-c5-uhS" firstAttribute="leading" secondItem="yQc-Pt-evz" secondAttribute="leading" constant="10" id="zTh-QO-n1K"/>
                                                     </constraints>
                                                 </view>
@@ -374,7 +383,6 @@
                                             <outlet property="adresseLabel" destination="fVp-BI-3zf" id="P7V-h1-8V1"/>
                                             <outlet property="descriptionLabel" destination="N4V-4R-Y5w" id="Ifn-1b-x36"/>
                                             <outlet property="lieuLabel" destination="fw0-KU-aHI" id="cTB-pd-Sjm"/>
-                                            <outlet property="mapView" destination="4vw-bv-Txp" id="JoO-eh-iBk"/>
                                             <outlet property="villeLabel" destination="qPh-Y7-2gq" id="fWi-QD-WMs"/>
                                             <outlet property="whiteView" destination="yQc-Pt-evz" id="j8R-6F-GR2"/>
                                         </connections>
@@ -486,6 +494,8 @@
     </scenes>
     <resources>
         <image name="AgendaNantesBackground" width="750" height="1334"/>
-        <image name="icons8-calendrier-48" width="48" height="48"/>
+        <image name="Icon_Calendar" width="48" height="48"/>
+        <image name="envelope" catalog="system" width="128" height="93"/>
+        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
     </resources>
 </document>

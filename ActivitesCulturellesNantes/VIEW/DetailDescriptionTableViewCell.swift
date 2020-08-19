@@ -15,7 +15,6 @@ class DetailDescriptionTableViewCell: UITableViewCell {
     @IBOutlet var lieuLabel: UILabel!
     @IBOutlet var adresseLabel: UILabel!
     @IBOutlet var villeLabel: UILabel!
-    @IBOutlet var mapView: MKMapView!
     @IBOutlet var descriptionLabel: UILabel!
     
     override func awakeFromNib() {
@@ -36,28 +35,12 @@ class DetailDescriptionTableViewCell: UITableViewCell {
         whiteView.layer.shadowOpacity = 2.0
     }
     
-    @IBAction func buttonPressed() {
-     // si absent crash quand on appui sur le bouton
+    @IBAction func mailButtonPressed() {
+        
     }
     
-    func configure(location: String) {
-        let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(location) { (placemarks, error) in
-            if let error = error { print(error.localizedDescription)
-                return
-            }
-            if let placemarks = placemarks {
-                let placemark = placemarks[0]
-                let annotation = MKPointAnnotation()
-                
-                if let location = placemark.location {
-                    annotation.coordinate = location.coordinate
-                    self.mapView.addAnnotation(annotation)
-                    
-                    let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 250, longitudinalMeters: 250)
-                    self.mapView.setRegion(region, animated: true)
-                }
-            }
-        }
+    @IBAction func mapButtonPressed() {
+        
     }
+    
 }
