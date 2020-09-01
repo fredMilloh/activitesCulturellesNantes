@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MapKit
 
 class DetailDescriptionTableViewCell: UITableViewCell {
     
@@ -16,6 +15,8 @@ class DetailDescriptionTableViewCell: UITableViewCell {
     @IBOutlet var adresseLabel: UILabel!
     @IBOutlet var villeLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
+    
+    var nom: String!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,12 +36,9 @@ class DetailDescriptionTableViewCell: UITableViewCell {
         whiteView.layer.shadowOpacity = 2.0
     }
     
-    @IBAction func mailButtonPressed() {
-        
-    }
-    
     @IBAction func mapButtonPressed() {
         
     }
     
 }
+

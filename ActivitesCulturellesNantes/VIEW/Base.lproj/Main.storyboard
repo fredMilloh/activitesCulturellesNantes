@@ -348,7 +348,7 @@
                                                                     </constraints>
                                                                     <state key="normal" title="MailButton" image="envelope" catalog="system"/>
                                                                     <connections>
-                                                                        <action selector="mailButtonPressed" destination="ZL2-tz-ryR" eventType="touchUpInside" id="1uj-oy-jUv"/>
+                                                                        <action selector="sendMail:" destination="JlO-ee-dBv" eventType="touchUpInside" id="7Bw-SE-4eZ"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -489,7 +489,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FfX-iQ-Srj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1292" y="662.51874062968523"/>
+            <point key="canvasLocation" x="1329" y="350"/>
         </scene>
     </scenes>
     <resources>

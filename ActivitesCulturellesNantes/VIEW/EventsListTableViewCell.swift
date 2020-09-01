@@ -12,7 +12,11 @@ class EventsListTableViewCell: UITableViewCell {
 
  
      @IBOutlet weak var whiteView: UIView!
-     @IBOutlet weak var imageMedia: UIImageView!
+    @IBOutlet weak var imageMedia: UIImageView! {
+        didSet {
+            EventsListTableViewCell.imageShared = imageMedia
+        }
+    }
      @IBOutlet weak var nomLabel: UILabel!
      @IBOutlet weak var dateLabel: UILabel!
      @IBOutlet weak var gratuitLabel: UILabel!
@@ -22,6 +26,7 @@ class EventsListTableViewCell: UITableViewCell {
 
      override func awakeFromNib() {
          super.awakeFromNib()
+        
          imageMedia.layer.cornerRadius = 22
          addShadow()
      }

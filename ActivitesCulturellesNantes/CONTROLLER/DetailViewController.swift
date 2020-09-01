@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MessageUI
 
 class DetailViewController: UIViewController {
     
@@ -56,6 +56,20 @@ class DetailViewController: UIViewController {
         }
     }
     
+// mail button with extension MFMail...Delegate
+    @IBAction func sendMail(_ sender: UIButton) {
+        if MFMailComposeViewController.canSendMail() {
+                let mail = MFMailComposeViewController()
+                mail.mailComposeDelegate = self
+                mail.setToRecipients(["destinataire"])
+            mail.setSubject("Sortie Culturelle")
+            mail.setMessageBody(("Hello there, are you interested by this event." + "\n" + detailNom + "\n" + detailLieu + "\n" + DetailViewController.eventDescription), isHTML: false)
+                present(mail, animated: true)
+            } else {
+                print("cannot send mail")
+            }
+    }
+    
     // pour afficher une phrase par ligne
     func descriptionStyle(texte: String) {
         let description = texte
@@ -76,10 +90,9 @@ class DetailViewController: UIViewController {
         let tarifs = line.components(separatedBy: "  ")
         //let tarifs = line.splitBefore(separator: { $0.isNumber })
         for tarif in tarifs {
-            DetailViewController.eventTarif += tarif + "\r"
+            DetailViewController.eventTarif += tarif + "\n"
         }
     }
-    
 }
  
 extension DetailViewController: UITableViewDataSource {
@@ -94,6 +107,7 @@ extension DetailViewController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "detailDescriptionCell", for: indexPath) as! DetailDescriptionTableViewCell
+            cell.nom = detailNom
             cell.lieuLabel.text = detailLieu
             cell.adresseLabel.text = detailAdresse
             cell.villeLabel.text = detailVille
@@ -150,6 +164,28 @@ extension DetailViewController: UITableViewDelegate {
     }
 }
 
+// to active cancel button etc...
+extension DetailViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        if let _ = error {
+            dismiss(animated: true)
+        }
+        
+        switch result {
+        case .cancelled :
+            print("cancelled")
+        case .failed :
+            print("failed")
+        case .saved :
+            print("saved")
+        case .sent :
+            print("sent")
+        @unknown default:
+            fatalError()
+        }
+        dismiss(animated: true)
+    }
+}
 extension UIImageView {
     func downloadedImage(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
         contentMode = mode
@@ -192,7 +228,8 @@ extension Sequence { // pour func infoStyle
            return result
        }
    }
-    extension String {  // pour func infoStyle
+
+extension String {  // pour func infoStyle
 
     var isLowercase: Bool {
         return self == self.lowercased()

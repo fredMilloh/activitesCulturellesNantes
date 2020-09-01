@@ -127,7 +127,7 @@ extension EventsListViewController: UITableViewDelegate {
             }
             
             let partagerAction = UIContextualAction(style: .normal, title: "partager") { (action, sourceView, completionHandler) in
-                let textParDefaut = "Aller à cet événement :" + EventsListViewController.array[indexPath.row].fields.nom + " " + EventsListViewController.array[indexPath.row].fields.description
+                let textParDefaut = "Bonjour," + "\n" + "es-tu intéressé pour aller à cet événement :" + "\n" + EventsListViewController.array[indexPath.row].fields.nom + " :" + "\n" + EventsListViewController.array[indexPath.row].fields.description
                 // to share image if existe
                 let activityController: UIActivityViewController
                 if let shareImage = EventsListTableViewCell.imageShared {
