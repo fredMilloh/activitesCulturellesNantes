@@ -20,6 +20,7 @@ class DetailDescriptionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        whiteView.layer.cornerRadius = 10
         addShadow()
     }
 

@@ -172,7 +172,6 @@ extension DetailViewController: MFMailComposeViewControllerDelegate {
         if let _ = error {
             dismiss(animated: true)
         }
-        
         switch result {
         case .cancelled :
             print("cancelled")

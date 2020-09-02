@@ -12,18 +12,12 @@ class EventsListTableViewCell: UITableViewCell {
 
  
      @IBOutlet weak var whiteView: UIView!
-    @IBOutlet weak var imageMedia: UIImageView! {
-        didSet {
-            EventsListTableViewCell.imageShared = imageMedia
-        }
-    }
+    @IBOutlet weak var imageMedia: UIImageView! 
      @IBOutlet weak var nomLabel: UILabel!
      @IBOutlet weak var dateLabel: UILabel!
      @IBOutlet weak var gratuitLabel: UILabel!
      @IBOutlet weak var completLabel: UILabel!
     
-    static var imageShared: UIImageView!
-
      override func awakeFromNib() {
          super.awakeFromNib()
         
@@ -48,7 +42,6 @@ class EventsListTableViewCell: UITableViewCell {
          dateLabel.text = date
          gratuitLabel.text = gratuit
          completLabel.text = complet
-         
          
      }
  }
