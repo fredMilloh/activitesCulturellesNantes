@@ -48,6 +48,7 @@ class DetailViewController: UIViewController {
         print("brutTarif", detailPrecisionsTarif)
     }
     
+ //MARKS: - Segue Map
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toMapView" {
             let destinationController = segue.destination as! MapViewController
@@ -56,7 +57,7 @@ class DetailViewController: UIViewController {
         }
     }
     
-// mail button with extension MFMail...Delegate
+//MARKS: -  MAIL button with extension MFMail...Delegate
     @IBAction func sendMail(_ sender: UIButton) {
         if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
@@ -70,6 +71,7 @@ class DetailViewController: UIViewController {
             }
     }
     
+//MARKS: - séparation string pour présentation texte plus clair TEST
     // pour afficher une phrase par ligne
     func descriptionStyle(texte: String) {
         let description = texte
@@ -94,7 +96,7 @@ class DetailViewController: UIViewController {
         }
     }
 }
- 
+//MARKS: - liste et config 3 cellules custom
 extension DetailViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -145,11 +147,11 @@ extension DetailViewController: UITableViewDataSource {
             fatalError("Echec")
         }
     }
-    
 }
 
+//MARKS: - cell animated
 extension DetailViewController: UITableViewDelegate {
- // cell animated
+ 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // position cell au départ et définition animation (ici rotation 90° vers gauche)
         /*
@@ -164,7 +166,7 @@ extension DetailViewController: UITableViewDelegate {
     }
 }
 
-// to active cancel button etc...
+//MARKS: - delegate MFMail to active cancel button etc...
 extension DetailViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         if let _ = error {

@@ -50,13 +50,14 @@ class EventsListViewController: UIViewController {
         private func update(with events: [records]) {
             
             EventsListViewController.array = events
-            
+            // tri 
             let manifIdSorted = events.sorted(by: {$0.fields.id_manif < $1.fields.id_manif})
             EventsListViewController.array = manifIdSorted
             
             tableView.reloadData()
         }
-        
+ 
+//MARKS: - affichage du calendrier et gestion date selectionnée
     @IBAction func calendarButtonPressed(_ sender: UIButton) {
         // création et affichage du calendarVC en popup
         let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -69,11 +70,12 @@ class EventsListViewController: UIViewController {
             
             self.dateLabel.text = dateVC.stringDay
             self.currentEvents(date: dateVC.dateSelected)
+            self.tableView.reloadData()
         }
     }
     
 }
-
+//MARKS: - Definition liste et config cell
 extension EventsListViewController: UITableViewDataSource {
         func numberOfSections(in tableView: UITableView) -> Int {
             return 1
@@ -97,8 +99,9 @@ extension EventsListViewController: UITableViewDataSource {
         }
         
     }
+//MARKS: - SELECT cell et ENVOI en push
 extension EventsListViewController: UITableViewDelegate {
-// quand cellule selectionner, envoi data en push
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detail: DetailViewController = self.storyboard?.instantiateViewController(identifier: "detailVC") as! DetailViewController
         let path = EventsListViewController.array[indexPath.row]
@@ -118,7 +121,7 @@ extension EventsListViewController: UITableViewDelegate {
         self.navigationController?.pushViewController(detail, animated: true)
     }
     
-// swippe droit avec action supprimer et partager
+//MARKS: - SWIPPE droit avec action supprimer et partager
         func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let supprimerAction = UIContextualAction(style: .destructive, title: "supprimer") { (action, sourceView, completionHandler) in
                 EventsListViewController.array.remove(at: indexPath.row)
