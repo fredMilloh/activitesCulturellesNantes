@@ -34,6 +34,7 @@ class EventsListViewController: UIViewController {
             navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
             navigationController?.navigationBar.shadowImage = UIImage()
             currentEvents(date: EventsListViewController.currentDate)
+            print("currentDate", EventsListViewController.currentDate)
         }
         
     func currentEvents(date: String) {
@@ -43,6 +44,7 @@ class EventsListViewController: UIViewController {
                     print(error)
                 case .success(let eventsData) :
                     self.update(with: eventsData.records)
+                    print("brut", eventsData)
                 }
             }
         }
@@ -53,7 +55,6 @@ class EventsListViewController: UIViewController {
             // tri 
             let manifIdSorted = events.sorted(by: {$0.fields.id_manif < $1.fields.id_manif})
             EventsListViewController.array = manifIdSorted
-            
             tableView.reloadData()
         }
  
@@ -111,7 +112,7 @@ extension EventsListViewController: UITableViewDelegate {
         detail.detailHeureFin = path.fields.heure_fin ?? ""
         detail.detailNom = path.fields.nom
         detail.detailLieu = path.fields.lieu
-        detail.detailAdresse = path.fields.adresse
+        detail.detailAdresse = path.fields.adresse ?? ""
         detail.detailVille = path.fields.ville
         detail.detailLocation = path.fields.location
         detail.detailDescription = path.fields.description

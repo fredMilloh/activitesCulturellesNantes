@@ -1,0 +1,48 @@
+
+/* Class = "UILabel"; text = "date"; ObjectID = "0u7-ao-3d6"; */
+"0u7-ao-3d6.text" = "date";
+
+/* Class = "UILabel"; text = "date"; ObjectID = "35r-Qz-5aa"; */
+"35r-Qz-5aa.text" = "date";
+
+/* Class = "UILabel"; text = "complet"; ObjectID = "5BQ-Lh-uE0"; */
+"5BQ-Lh-uE0.text" = "complet";
+
+/* Class = "UILabel"; text = "texte"; ObjectID = "8Sp-3G-OAY"; */
+"8Sp-3G-OAY.text" = "texte";
+
+/* Class = "UIButton"; normalTitle = "MailButton"; ObjectID = "Azj-0B-Ngp"; */
+"Azj-0B-Ngp.normalTitle" = "MailButton";
+
+/* Class = "UILabel"; text = " gratuit "; ObjectID = "Inu-iR-UKa"; */
+"Inu-iR-UKa.text" = " gratuit ";
+
+/* Class = "UILabel"; text = "description"; ObjectID = "N4V-4R-Y5w"; */
+"N4V-4R-Y5w.text" = "description";
+
+/* Class = "UIButton"; normalTitle = "MapButton"; ObjectID = "RbX-pK-eel"; */
+"RbX-pK-eel.normalTitle" = "MapButton";
+
+/* Class = "UILabel"; text = "titre"; ObjectID = "U73-nE-cIW"; */
+"U73-nE-cIW.text" = "titre";
+
+/* Class = "UILabel"; text = "adresse"; ObjectID = "fVp-BI-3zf"; */
+"fVp-BI-3zf.text" = "adresse";
+
+/* Class = "UILabel"; text = "nom"; ObjectID = "fkp-XU-dEj"; */
+"fkp-XU-dEj.text" = "nom";
+
+/* Class = "UILabel"; text = "lieu"; ObjectID = "fw0-KU-aHI"; */
+"fw0-KU-aHI.text" = "lieu";
+
+/* Class = "UILabel"; text = "Aujourd'hui"; ObjectID = "kui-Ga-VJw"; */
+"kui-Ga-VJw.text" = "Aujourd'hui";
+
+/* Class = "UILabel"; text = "ville"; ObjectID = "qPh-Y7-2gq"; */
+"qPh-Y7-2gq.text" = "ville";
+
+/* Class = "UILabel"; text = "Changer :"; ObjectID = "uPG-4t-yNv"; */
+"uPG-4t-yNv.text" = "Changer :";
+
+/* Class = "UILabel"; text = "nom"; ObjectID = "vgV-Uu-mgU"; */
+"vgV-Uu-mgU.text" = "nom";

@@ -17,10 +17,10 @@ class QueryListService {
        
         let firstUrl = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_agenda-evenements-nantes-nantes-metropole&rows=50&q="
         
-        let pathName = String(firstUrl + "\""+dateSelected+"\"")
+        let pathName = String(firstUrl + dateSelected)
         let Url = pathName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let url = URL(string: Url)!
-        
+        print(pathName)
         URLSession.shared.dataTask(with: url) { (data, response, error) in
                 DispatchQueue.main.async {
 

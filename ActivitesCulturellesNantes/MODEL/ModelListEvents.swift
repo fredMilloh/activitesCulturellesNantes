@@ -25,7 +25,7 @@ struct fields: Decodable {
     var heure_debut: String?
     var heure_fin: String?
     var lieu: String
-    var adresse: String
+    var adresse: String?
     var ville: String
     var description: String
     var info_suppl: String?

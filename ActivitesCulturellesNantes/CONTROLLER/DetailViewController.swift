@@ -187,6 +187,9 @@ extension DetailViewController: MFMailComposeViewControllerDelegate {
         dismiss(animated: true)
     }
 }
+
+//MARKS: - download image
+
 extension UIImageView {
     func downloadedImage(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
         contentMode = mode
